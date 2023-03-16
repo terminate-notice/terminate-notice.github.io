@@ -1,0 +1,15 @@
+title: terminate-notice
+email: jon@sprig.gs
+description: >- 
+  This project is a script which polls the AWS Metadata Service looking for a termination warning, and triggers a response.
+baseurl: ""
+url: "https://terminate-notice.github.io"
+github_username: terminate-notice
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+exclude:
+  - tools/
+  - doc/
