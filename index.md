@@ -12,6 +12,8 @@ scripts to cleanly move services elsewhere.
 
 ## How to Install?
 
+### Individually
+
 Get the latest release from [terminate-notice/terminate-notice](
 https://github.com/terminate-notice/terminate-notice/releases/latest)
 
@@ -26,7 +28,46 @@ https://github.com/terminate-notice/terminate-notice-slack/releases/latest)
 * [terminate-notice/terminate-notice-shutdown](
 https://github.com/terminate-notice/terminate-notice-shutdown/releases/latest)
 
-You should configure settings that are installed into `/etc/terminate-notice.conf.d/`
+### Add a Debian Repository
+
+Download the [public key](terminate-notice.gpg) and put it in
+`/etc/apt/keyrings/terminate-notice.gpg`. You can achieve this with:
+
+```
+wget -qO- {{ site.url }}/terminate-notice.gpg | sudo tee /etc/apt/keyrings/terminate-notice.gpg
+```
+
+Next, create the source in `/etc/apt/sources.list.d/`
+
+```
+echo "deb [signed-by=/etc/apt/keyrings/terminate-notice.gpg] {{ site.url }}/deb stable main" | sudo tee /etc/apt/sources.list.d/terminate-notice.list
+```
+
+Then run `apt update && apt install -y` and the names of the packages you want to install.
+
+### Add a RPM Repository
+
+Download the repo file `yum-config-manager --add-repo {{ site.url }}/terminate-notice.repo`
+
+Then you can do `yum install -y` and the names of the packages you want to install.
+
+### The packages you can install
+
+Currently these are:
+
+* terminate-notice
+* terminate-notice-announce
+* terminate-notice-datadog
+* terminate-notice-shutdown
+* terminate-notice-slack
+
+## After installing the packages
+
+You should configure settings that are installed into `/etc/terminate-notice.conf.d/` and then run
+
+```
+systemctl enable --now terminate-notice.service
+```
 
 ## How to contribute?
 
