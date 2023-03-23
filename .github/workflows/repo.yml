@@ -1,3 +1,8 @@
+# Huge swathes of this file are inspired by:
+# - https://earthly.dev/blog/creating-and-hosting-your-own-rpm-packages-and-yum-repo/
+# - https://earthly.dev/blog/creating-and-hosting-your-own-deb-packages-and-apt-repo/
+#
+# This file was also based on the Jekyll page builder which is a default from Github.
 name: Deploy Debian and RPM Repo plus Jekyll homepage
 
 on:
