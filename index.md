@@ -43,13 +43,13 @@ Next, create the source in `/etc/apt/sources.list.d/`
 echo "deb [arch=all signed-by=/etc/apt/keyrings/terminate-notice.asc] {{ site.url }}/deb stable main" | sudo tee /etc/apt/sources.list.d/terminate-notice.list >/dev/null
 ```
 
-Then run `apt update && apt install -y` and the names of the packages you want to install.
+Then run `apt update && apt install -y` followed by the names of the packages you want to install.
 
 ### Add a RPM Repository
 
-Download the repo file `yum-config-manager --add-repo {{ site.url }}/terminate-notice.repo`
+Download the repo file `cd /etc/yum.repos.d ; curl {{ site.url }}/terminate-notice.repo -LO`
 
-Then you can do `yum install -y` and the names of the packages you want to install.
+Then you can do `yum install -y` followed by the names of the packages you want to install.
 
 ### The packages you can install
 
