@@ -34,13 +34,13 @@ Download the [public key](terminate-notice.gpg) and put it in
 `/etc/apt/keyrings/terminate-notice.gpg`. You can achieve this with:
 
 ```
-wget -qO- {{ site.url }}/terminate-notice.gpg | sudo tee /etc/apt/keyrings/terminate-notice.gpg
+wget -qO- {{ site.url }}/terminate-notice.asc | sudo tee /etc/apt/keyrings/terminate-notice.asc >/dev/null
 ```
 
 Next, create the source in `/etc/apt/sources.list.d/`
 
 ```
-echo "deb [signed-by=/etc/apt/keyrings/terminate-notice.gpg] {{ site.url }}/deb stable main" | sudo tee /etc/apt/sources.list.d/terminate-notice.list
+echo "deb [arch=all signed-by=/etc/apt/keyrings/terminate-notice.asc] {{ site.url }}/deb stable main" | sudo tee /etc/apt/sources.list.d/terminate-notice.list >/dev/null
 ```
 
 Then run `apt update && apt install -y` and the names of the packages you want to install.
