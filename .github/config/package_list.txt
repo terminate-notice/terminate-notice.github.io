@@ -3,3 +3,5 @@ terminate-notice/terminate-notice-announce
 terminate-notice/terminate-notice-datadog
 terminate-notice/terminate-notice-shutdown
 terminate-notice/terminate-notice-slack
+terminate-notice/secret-handler-py2
+terminate-notice/secret-handler-py3
